@@ -45,38 +45,6 @@
 					<div class="content" style="width:100%;">
 						<h2 class="major">Get in touch</h2>
 
-						<form id="contactForm">
-							<div class="fields">
-								<div class="field half">
-									<label>Name</label>
-									<input type="text" name="name" required />
-								</div>
-						
-								<div class="field half">
-									<label>Email</label>
-									<input type="email" name="email" required />
-								</div>
-						
-								<div class="field">
-									<label>Message</label>
-									<textarea name="message" rows="5" required></textarea>
-								</div>
-							</div>
-						
-							<ul class="actions">
-								<li><button type="submit" class="primary">Send Message</button></li>
-							</ul>
-						</form>
-						
-						<p id="successMessage" style="display:none; color:#4caf50;">
-							Message sent successfully.
-						</p>
-
-						<iframe name="hidden_iframe" style="display:none;" onload="if(submitted) showSuccess();"></iframe>
-
-						<hr />
-
-						<h3>Direct Contact</h3>
 						<ul class="contact">
 							<li class="icon solid fa-envelope">
 								<a href="mailto:pelumiomotosho21@gmail.com">pelumiomotosho21@gmail.com</a>
@@ -108,12 +76,6 @@
 
 	</div>
 
-	<script>
-		let submitted = false;
-		function showSuccess() {
-			document.getElementById("successMessage").style.display = "block";
-		}
-	</script>
 
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -121,30 +83,6 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-    <script>
-	document.getElementById("contactForm").addEventListener("submit", async function(e) {
-		e.preventDefault();
-	
-		const formData = {
-			name: this.name.value,
-			email: this.email.value,
-			message: this.message.value
-		};
-	
-		try {
-			await fetch("http://localhost:5678/webhook-test/contact-form", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(formData)
-			});
-	
-			document.getElementById("successMessage").style.display = "block";
-			this.reset();
-		} catch (error) {
-			alert("Something went wrong. Please try again.");
-		}
-	});
-	</script>
 
 	</body>
 </html>
